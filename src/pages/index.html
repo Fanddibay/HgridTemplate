@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main Page</title>
+    <link rel="stylesheet" href="/src/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="overflow-hidden bg-[#fafafa] dark:bg-[#151515]">
+    <header
+      class="w-full bg-nav-light dark:bg-nav-dark px-4 py-3 justify-between flex items-center"
+    >
+      <img
+        src="/src/assets/logoFullColor.png"
+        class="dark:hidden"
+        width="150px"
+        alt="Logo Light"
+      />
+      <img
+        src="/src/assets/logoDark.png"
+        class="hidden dark:block"
+        width="150px"
+        alt="Logo Dark"
+      />
+      <div class="logout">
+        <a href="#" class="text-black dark:text-white flex gap-2">
+          <img
+            src="/src/assets/logoutLight.svg"
+            class="dark:hidden"
+            alt="Logout Light"
+          />
+          <img
+            src="/src/assets/logoutDark.svg"
+            class="hidden dark:block"
+            alt="Logout Dark"
+          />
+          <p class="font-bold">Logout</p>
+        </a>
+      </div>
+      <button id="toggleMode" class="text-black dark:text-white">
+        <i class="fas fa-adjust"></i> Toggle Mode
+      </button>
+    </header>
+    <div class="flex">
+      <aside class="sidebar">
+        <div class="grid gap-y-8 items-center text-center justify-center pt-8">
+          <div>
+            <a href="#">
+              <img
+                src="/src/assets/file-05-light.svg"
+                class="dark:hidden"
+                alt="File Light"
+              />
+              <img
+                src="/src/assets/file-05.svg"
+                class="hidden dark:block"
+                alt="File Dark"
+              />
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img
+                src="/src/assets/search-02-light.svg"
+                class="dark:hidden"
+                alt="Search Light"
+              />
+              <img
+                src="/src/assets/search-02.svg"
+                class="hidden dark:block"
+                alt="Search Dark"
+              />
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img
+                src="/src/assets/cursor-06-light.svg"
+                class="dark:hidden"
+                alt="Cursor Light"
+              />
+              <img
+                src="/src/assets/cursor-06.svg"
+                class="hidden dark:block"
+                alt="Cursor Dark"
+              />
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img
+                src="/src/assets/fluent-mdl2_data-management-settings-light.svg"
+                class="dark:hidden"
+                alt="Settings Light"
+              />
+              <img
+                src="/src/assets/fluent-mdl2_data-management-settings.svg"
+                class="hidden dark:block"
+                alt="Settings Dark"
+              />
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img
+                src="/src/assets/data-01-light.svg"
+                class="dark:hidden"
+                alt="Data Light"
+              />
+              <img
+                src="/src/assets/data-01.svg"
+                class="hidden dark:block"
+                alt="Data Dark"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="grid bottom-10 left-3 mx-auto absolute gap-y-8 items-center text-center justify-center"
+        >
+          <div>
+            <a href="#">
+              <img
+                src="/src/assets/user-profile-circle-light.svg"
+                class="dark:hidden"
+                alt="User Light"
+              />
+              <img
+                src="/src/assets/user-profile-circle.svg"
+                class="hidden dark:block"
+                alt="User Dark"
+              />
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img
+                src="/src/assets/settings-light.svg"
+                class="dark:hidden"
+                alt="Settings Light"
+              />
+              <img
+                src="/src/assets/settings.svg"
+                class="hidden dark:block"
+                alt="Settings Dark"
+              />
+            </a>
+          </div>
+        </div>
+      </aside>
+      <div
+        class="bg-card-light dark:bg-card-dark h-[274px] w-[304px] m-auto p-8"
+      >
+        <h5 class="text-blue-light dark:text-blue-dark text-2xl font-bold">
+          Start
+        </h5>
+        <div class="newProject">
+          <div class="mt-6">
+            <a
+              href="project.html"
+              class="text-green-light dark:text-green-dark"
+            >
+              <img
+                src="/src/assets/file-medical-light.svg"
+                class="dark:hidden"
+                alt="New Project Light"
+              />
+              <img
+                src="/src/assets/file-medical.svg"
+                class="hidden dark:block"
+                alt="New Project Dark"
+              />
+              New Project
+            </a>
+          </div>
+          <div>
+            <a
+              href="newFile.html"
+              class="text-green-light dark:text-green-dark"
+            >
+              <img
+                src="/src/assets/file-medical-light.svg"
+                class="dark:hidden"
+                alt="New File Light"
+              />
+              <img
+                src="/src/assets/file-medical.svg"
+                class="hidden dark:block"
+                alt="New File Dark"
+              />
+              New File
+            </a>
+          </div>
+          <div>
+            <a href="openFile.html" class="text-blue-light dark:text-blue-dark">
+              <img
+                src="/src/assets/file-export-light.svg"
+                class="dark:hidden"
+                alt="Open File Light"
+              />
+              <img
+                src="/src/assets/file-export.svg"
+                class="hidden dark:block"
+                alt="Open File Dark"
+              />
+              Open File
+            </a>
+          </div>
+          <div>
+            <a href="#" class="text-blue-light dark:text-blue-dark">
+              <img
+                src="/src/assets/folder-open-light.svg"
+                class="dark:hidden"
+                alt="Open Project Light"
+              />
+              <img
+                src="/src/assets/folder-open.svg"
+                class="hidden dark:block"
+                alt="Open Project Dark"
+              />
+              Open Project
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggleButton = document.getElementById("toggleMode");
+      toggleButton.addEventListener("click", function () {
+        document.documentElement.classList.toggle("dark");
+      });
+    });
+  </script>
+</html>

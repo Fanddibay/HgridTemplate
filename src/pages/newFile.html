@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main Page</title>
+    <link rel="stylesheet" href="/src/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="overflow-hidden bg-[#151515]">
+    <header
+      class="w-full bg-nav-dark px-4 py-3 justify-between flex items-center"
+    >
+      <img src="/src/assets/logoDark.png" width="150px" alt="" />
+      <div class="logout">
+        <a href="#" class="text-white flex gap-2">
+          <img src="/src/assets/logoutDark.svg" alt="" />
+          <p class="font-bold">Logout</p>
+        </a>
+      </div>
+    </header>
+    <div class="flex">
+      <aside class="sidebar">
+        <div class="grid gap-y-8 items-center text-center justify-center pt-8">
+          <div>
+            <a href="#">
+              <img src="/src/assets/file-05.svg" alt="" />
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img src="/src/assets/search-02.svg" alt="" />
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img src="/src/assets/cursor-06.svg" alt="" />
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img
+                src="/src/assets/fluent-mdl2_data-management-settings.svg"
+                alt=""
+              />
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img src="/src/assets/data-01.svg" alt="" />
+            </a>
+          </div>
+        </div>
+        <div
+          class="grid bottom-10 left-3 mx-auto absolute gap-y-8 items-center text-center justify-center"
+        >
+          <div>
+            <a href="#">
+              <img src="/src/assets/user-profile-circle.svg" alt="" />
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img src="/src/assets/settings.svg" alt="" />
+            </a>
+          </div>
+        </div>
+      </aside>
+      <div class="bg-card-dark m-auto p-6">
+        <div class="flex justify-between items-start">
+          <img src="/src/assets//Featuredicon.png" alt="" />
+          <a href="#">
+            <i class="fa-solid fa-xmark text-green-dark"></i>
+          </a>
+        </div>
+        <h5 class="text-blue-dark mt-4">New Project Name</h5>
+        <form action="mainProject.html" class="grid gap-y-4">
+          <input
+            type="text"
+            class="w-96 h-12 pl-3.5 pb-2 bg-cyan-800 rounded mt-5"
+            placeholder="type here..."
+          />
+          <select
+            name="newFile"
+            id="NewFile"
+            class="w-96 h-12 pl-3.5 pb-2 bg-cyan-800 rounded grid gap-y-4 text-white"
+          >
+            <option value="videoLabels">Video Labels</option>
+            <option value="videoLabels">face-detection</option>
+            <option value="videoLabels">newtest111</option>
+            <option value="videoLabels">randomfile</option>
+          </select>
+          <div class="justify-end flex gap-4 mt-4">
+            <a
+              type="reset"
+              href="index.html"
+              class="py-2 px-5 rounded border-[#0A677A] border text-[#E6F1F5]"
+            >
+              Back
+            </a>
+            <button
+              type="submit"
+              class="py-2 px-5 rounded bg-[#04465D] text-[#B2D4E0]"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

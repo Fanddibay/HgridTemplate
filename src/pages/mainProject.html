@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main Page</title>
+    <link rel="stylesheet" href="/src/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <style>
+    .resize-handle {
+      cursor: ns-resize;
+      width: 100%;
+      height: 10px;
+      background-color: #1a202c; /* TailwindCSS bg-gray-800 */
+      position: absolute;
+      top: 0;
+    }
+    .dropdown-menu {
+      display: none;
+    }
+    .dropdown-menu.show {
+      display: block;
+    }
+    .dashed-line {
+      border-left: 1px dashed #ccc;
+      height: 90%;
+      position: absolute;
+      left: 10;
+      top: 0;
+    }
+    .rotate-90 {
+      transform: rotate(90deg);
+    }
+    .rotate-180 {
+      transform: rotate(180deg);
+    }
+  </style>
+  <body class="overflow-hidden bg-[#0B1320]">
+    <header
+      class="w-full bg-nav-dark px-4 py-3 justify-between flex items-center border-b border-border-color"
+    >
+      <img src="/src/assets/logoDark.png" width="150px" alt="" />
+      <div class="logout">
+        <a href="#" class="text-white flex gap-2">
+          <img src="/src/assets/logoutDark.svg" alt="" />
+          <p class="font-bold">Logout</p>
+        </a>
+      </div>
+    </header>
+    <div class="flex">
+      <!-- left content -->
+      <aside class="sidebar">
+        <div class="grid gap-y-8 items-center text-center justify-center pt-8">
+          <div class="relative inline-block text-left">
+            <a href="#" id="dropdownToggle" class="inline-flex items-center">
+              <img src="/src/assets/file-05.svg" alt="Dropdown Icon" />
+            </a>
+            <div
+              id="dropdownMenu"
+              class="hidden absolute mt-2 w-56 rounded-md shadow-lg bg-card-dark z-10 text-white"
+            >
+              <div class="py-1">
+                <div class="relative group">
+                  <button
+                    type="button"
+                    class="flex items-center w-full px-4 py-2 text-sm group-hover:bg-gray-700"
+                  >
+                    New
+                    <i
+                      class="fa-solid fa-arrow-right w-5 h-5 ml-auto group-hover:text-gray-400"
+                    ></i>
+                  </button>
+                  <div
+                    class="hidden absolute left-full top-0 -ml-2 w-40 rounded-md shadow-lg bg-card-dark group-hover:block"
+                  >
+                    <div class="py-1">
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm group-hover:bg-gray-700"
+                        >Open File</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm group-hover:bg-gray-700"
+                        >Open Project</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="flex items-center w-full px-4 py-2 text-sm group-hover:bg-gray-700"
+                >
+                  Open
+                  <i
+                    class="fa-solid fa-arrow-right w-5 h-5 ml-auto group-hover:text-gray-400"
+                  ></i>
+                </button>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm group-hover:bg-gray-700"
+                  >Settings</a
+                >
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm group-hover:bg-gray-700"
+                  >Help</a
+                >
+              </div>
+            </div>
+          </div>
+          <div>
+            <a href="#">
+              <img src="/src/assets/search-02.svg" alt="" />
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img src="/src/assets/cursor-06.svg" alt="" />
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img
+                src="/src/assets/fluent-mdl2_data-management-settings.svg"
+                alt=""
+              />
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img src="/src/assets/data-01.svg" alt="" />
+            </a>
+          </div>
+        </div>
+        <div
+          class="grid bottom-10 left-2 mx-auto absolute gap-y-8 items-center text-center justify-center"
+        >
+          <div>
+            <a href="#">
+              <img src="/src/assets/user-profile-circle.svg" alt="" />
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img src="/src/assets/settings.svg" alt="" />
+            </a>
+          </div>
+        </div>
+      </aside>
+      <div
+        class="bg-nav-dark h-[100vh] w-[450px] overflow-auto pb-32 testScroll border-r border-border-color"
+      >
+        <!-- project content -->
+        <div class="bg-card-dark p-2">
+          <h5 class="text-white text-sm font-medium">Project Management</h5>
+        </div>
+        <!-- grid project content -->
+        <!-- content 1 -->
+        <div
+          class="flex items-center justify-between text-white px-4 py-2 cursor-pointer hover:bg-blue-dark"
+          onclick="toggleDropdown('dropdown1')"
+        >
+          <div class="flex items-center gap-3">
+            <img src="/src/assets/folder.svg" alt="folder icon" />
+            <h5>HD211 projects</h5>
+          </div>
+          <svg
+            id="icon-dropdown1"
+            class="w-4 h-4 transition-transform duration-200"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </div>
+        <!-- content 1 -->
+        <!-- dropdown content 1 -->
+        <div id="dropdown1" class="dropdown-menu pl-6 relative">
+          <div class="dashed-line"></div>
+          <ul class="py-1 text-white">
+            <li class="relative">
+              <div
+                class="flex items-center justify-between px-4 py-2 text-white cursor-pointer hover:bg-blue-dark"
+                onclick="toggleDropdown('subDropdown1')"
+              >
+                <div class="flex items-center gap-4">
+                  <img src="/src/assets/folder.svg" alt="folder icon" />
+                  <span>Project 1</span>
+                </div>
+                <svg
+                  id="icon-subDropdown1"
+                  class="w-4 h-4 transition-transform duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+              <div id="subDropdown1" class="dropdown-menu mt-2 pl-9 relative">
+                <div class="dashed-line"></div>
+                <ul>
+                  <li class="relative">
+                    <div
+                      class="flex items-center justify-between px-4 py-2 text-white cursor-pointer hover:bg-blue-dark"
+                      onclick="toggleDropdown('subSubDropdown1')"
+                    >
+                      <div class="flex items-center gap-4">
+                        <img src="/src/assets/folder.svg" alt="folder icon" />
+                        <span>Subproject 1.1</span>
+                      </div>
+                      <svg
+                        id="icon-subSubDropdown1"
+                        class="w-4 h-4 transition-transform duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div
+                      id="subSubDropdown1"
+                      class="dropdown-menu mt-2 pl-12 relative"
+                    >
+                      <div class="dashed-line"></div>
+                      <ul>
+                        <li>
+                          <a
+                            href="#"
+                            class="flex gap-3 items-center px-4 py-2 hover:bg-blue-dark"
+                          >
+                            <img
+                              src="/src/assets/file-04.svg"
+                              alt="folder icon"
+                            />
+                            <span>Project.Json</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="flex gap-3 items-center px-4 py-2 hover:bg-blue-dark"
+                          >
+                            <img
+                              src="/src/assets/file-04.svg"
+                              alt="folder icon"
+                            />
+                            <span>newfile.json</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="flex gap-3 items-center px-4 py-2 hover:bg-blue-dark"
+                          >
+                            <img
+                              src="/src/assets/file-04.svg"
+                              alt="folder icon"
+                            />
+                            <span>newProject.json</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="block">
+                    <a
+                      href="#"
+                      class="flex gap-3 items-center px-4 py-2 hover:bg-blue-dark"
+                    >
+                      <img src="/src/assets/folder.svg" alt="folder icon" />
+                      <span>Subproject 1.2</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-blue-dark">
+                <div class="flex items-center gap-4">
+                  <img src="/src/assets/folder.svg" alt="folder icon" />
+                  <span>Project 2</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-blue-dark">
+                <div class="flex items-center gap-4">
+                  <img src="/src/assets/folder.svg" alt="folder icon" />
+                  <span>Project 3</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- end dropdown content 1 -->
+        <!-- content 2 -->
+        <div
+          class="flex items-center justify-between text-white px-4 py-2 cursor-pointer hover:bg-blue-dark"
+        >
+          <div class="flex items-center gap-3">
+            <img src="/src/assets/folder.svg" alt="folder icon" />
+            <h5>HD253 projects</h5>
+          </div>
+          <svg
+            id="icon-dropdown1"
+            class="w-4 h-4 transition-transform duration-200"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </div>
+        <!-- end content 2 -->
+        <!-- content 3 -->
+        <div
+          class="flex items-center justify-between text-white px-4 py-2 cursor-pointer hover:bg-blue-dark"
+        >
+          <div class="flex items-center gap-3">
+            <img src="/src/assets/folder.svg" alt="folder icon" />
+            <h5>HD293 projects</h5>
+          </div>
+          <svg
+            id="icon-dropdown1"
+            class="w-4 h-4 transition-transform duration-200"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </div>
+        <!-- end content 3 -->
+        <!-- content 4 -->
+        <div
+          class="flex items-center justify-between text-white px-4 py-2 cursor-pointer hover:bg-blue-dark"
+        >
+          <div class="flex items-center gap-3">
+            <img src="/src/assets/folder.svg" alt="folder icon" />
+            <h5>HD1992 projects</h5>
+          </div>
+          <svg
+            id="icon-dropdown1"
+            class="w-4 h-4 transition-transform duration-200"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </div>
+        <!-- end content 4 -->
+        <!-- end project content -->
+        <!-- operator -->
+        <div class="operator">
+          <div class="bg-green-dark p-2 my-3">
+            <h5 class="text-white text-sm font-medium">Operator</h5>
+          </div>
+          <!-- content 1 -->
+          <div class="contentOperator" onclick="toggleDropdown('dropdown2')">
+            <div class="flex items-center gap-3">
+              <h5>Bidirectional layers</h5>
+            </div>
+            <svg
+              id="icon-dropdown1"
+              class="w-4 h-4 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </div>
+          <!-- content 1 -->
+          <!-- dropdown content  -->
+          <div id="dropdown2" class="dropdown-menu relative">
+            <ul class="py-1 text-white bg-dark-blue">
+              <li class="relative">
+                <div
+                  class="flex items-center justify-between px-4 py-2 text-white cursor-pointer hover:bg-blue-dark"
+                >
+                  <div class="flex items-center gap-4">
+                    <img src="/src/assets/package-01.svg" alt="folder icon" />
+                    <span>Text Label Encoder</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-dark">
+                  <div class="flex items-center gap-4">
+                    <img src="/src/assets/perspective.svg" alt="folder icon" />
+                    <span>Regex Tokenizer</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-dark">
+                  <div class="flex items-center gap-4">
+                    <img src="/src/assets/contrast.svg" alt="folder icon" />
+                    <span>Regex Subtitution</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-dark">
+                  <div class="flex items-center gap-4">
+                    <img src="/src/assets/server-02.svg" alt="folder icon" />
+                    <span>Data Selector</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- end dropdown content 1 -->
+          <!-- content 2 -->
+          <div class="contentOperator">
+            <div class="flex items-center gap-3">
+              <h5>Core layers</h5>
+            </div>
+            <svg
+              id="icon-dropdown1"
+              class="w-4 h-4 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </div>
+          <!-- content 2 -->
+          <!-- content 3 -->
+          <div class="contentOperator">
+            <div class="flex items-center gap-3">
+              <h5>Reshaping layers</h5>
+            </div>
+            <svg
+              id="icon-dropdown1"
+              class="w-4 h-4 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </div>
+          <!-- content 3 -->
+          <!-- content 4 -->
+          <div class="contentOperator">
+            <div class="flex items-center gap-3">
+              <h5>Attention layers</h5>
+            </div>
+            <svg
+              id="icon-dropdown1"
+              class="w-4 h-4 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </div>
+          <!-- content 4 -->
+          <!-- content 5 -->
+          <div class="contentOperator">
+            <div class="flex items-center gap-3">
+              <h5>Modeling layers</h5>
+            </div>
+            <svg
+              id="icon-dropdown1"
+              class="w-4 h-4 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </div>
+          <!-- content 5 -->
+        </div>
+        <!-- end operator -->
+      </div>
+      <!-- middle content -->
+      <div class="w-full relative justify-center">
+        <!-- page link workflow-->
+        <div class="m-2 text-sm flex items-center gap-4">
+          <div
+            class="bg-card-workflow gap-4 p-2 flex items-center rounded text-white"
+          >
+            <h5>HD211 Projects</h5>
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <div
+            class="bg-card-dark text-text-dark gap-4 p-2 flex items-center rounded"
+          >
+            <h5>HD211 projects not selected</h5>
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+        <!-- feature go js -->
+        <div class="ml-48 container mt-4">
+          <div class="flex items-center gap-12">
+            <div class="flex gap-3">
+              <button class="button-canvas">
+                <img src="/src/assets/canvasIcon/clipboard.svg" alt="" />
+              </button>
+              <button class="button-canvas">
+                <img src="/src/assets/canvasIcon/save.svg" alt="" />
+              </button>
+            </div>
+            <div class="flex gap-3">
+              <button class="button-canvas">
+                <img src="/src/assets/canvasIcon/rotation-left.svg" alt="" />
+              </button>
+              <button class="button-canvas">
+                <img src="/src/assets/canvasIcon/rotation-right.svg" alt="" />
+              </button>
+            </div>
+            <div class="flex gap-3">
+              <button class="button-canvas">
+                <img src="/src/assets/canvasIcon/file-code.svg" alt="" />
+              </button>
+              <button class="button-canvas">
+                <img src="/src/assets/canvasIcon/package.svg" alt="" />
+              </button>
+            </div>
+            <div class="flex gap-3">
+              <button class="button-canvas">
+                <img src="/src/assets/canvasIcon/zoom-in.svg" alt="" />
+              </button>
+              <button class="button-canvas">
+                <img src="/src/assets/canvasIcon/zoom-out.svg" alt="" />
+              </button>
+              <button class="button-canvas">
+                <img src="/src/assets/canvasIcon/delete.svg" alt="" />
+              </button>
+              <button class="button-canvas">
+                <img src="/src/assets/canvasIcon/play.svg" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- canvas go js -->
+        <div class="my-4 bg-white w-full h-full">Canvas in here!</div>
+        <!-- bottom panel -->
+        <div
+          class="absolute bottom-0 right-5 hidden text-nav-dark text-xl cursor-pointer hover:text-card-workflow"
+          id="togglePanel"
+        >
+          <i class="fa-solid fa-circle-info fa-xl"></i>
+        </div>
+        <div
+          id="resizeContainer"
+          class="text-white bg-nav-dark w-full overflow-auto absolute testScroll bottom-0"
+        >
+          <div id="resizeHandle" class="resize-handle"></div>
+          <div class="p-10 text-white text-sm">
+            <!-- Padding top untuk menghindari teks tersembunyi di balik handle -->
+            <div class="flex items-center justify-between mb-4">
+              <h5 class="text-base font-medium">How to use</h5>
+              <div class="flex gap-4 items-center">
+                <a href="#" id="upPanel"
+                  ><i class="fa-solid fa-angles-up"></i
+                ></a>
+                <a href="#" id="closePanel"
+                  ><i class="fa-solid fa-xmark"></i
+                ></a>
+              </div>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
+              sequi! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Suscipit numquam obcaecati quam deleniti omnis laboriosam facere
+              ad, soluta eligendi aspernatur voluptas doloribus quidem amet
+              tempore. Perferendis quidem dignissimos et voluptatum officiis
+              tempore repellendus natus veniam. Aut dolores cupiditate dicta
+              dignissimos! Laudantium voluptatibus excepturi praesentium, unde
+              vitae error culpa provident ipsam consequatur soluta nesciunt
+              ipsa, dicta nemo quis quae porro.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- right content -->
+      <div
+        class="p-4 justify-start w-[450px] bg-nav-dark h-[100vh] testScroll overflow-auto pb-24"
+      >
+        <div>
+          <h5 class="bg-card-dark text-white py-2 p-4">Workflow config</h5>
+          <p class="mt-6 text-white border-b border-border-color pb-4">
+            Program Use
+          </p>
+        </div>
+        <!-- programing language -->
+        <div class="py-4">
+          <form class="programUse">
+            <div class="">
+              <label for="python" class="text-gray-700">Python</label>
+              <input
+                type="radio"
+                id="python"
+                name="language"
+                value="python"
+                class=""
+              />
+            </div>
+            <div>
+              <label for="cpp" class="text-gray-700">C++</label>
+              <input
+                type="radio"
+                id="cpp"
+                name="language"
+                value="cpp"
+                class=""
+              />
+            </div>
+            <div>
+              <label for="javascript" class="text-gray-700">JavaScript</label>
+              <input
+                type="radio"
+                id="javascript"
+                name="language"
+                value="javascript"
+                class=""
+              />
+            </div>
+          </form>
+        </div>
+        <p class="mt-2 text-white border-b border-border-color pb-4">
+          Problem Selection
+        </p>
+        <!-- problem selection -->
+        <!-- 1 -->
+        <form class="programUse1">
+          <div
+            class="border border-border-color flex-col justify-start rounded-lg mt-4"
+          >
+            <h5 class="py-4 text-text-light">Natural Language</h5>
+            <div class="">
+              <label for="Natural" class="text-gray-700"
+                >Text Classification</label
+              >
+              <input
+                type="radio"
+                id="Natural"
+                name="language"
+                value="python"
+                class=""
+              />
+            </div>
+            <div>
+              <label for="Sentiment" class="text-gray-700"
+                >Sentiment Analysis</label
+              >
+              <input
+                type="radio"
+                id="Sentiment"
+                name="language"
+                value="cpp"
+                class=""
+              />
+            </div>
+            <div>
+              <label for="Entity" class="text-gray-700"
+                >Entity Extraction</label
+              >
+              <input
+                type="radio"
+                id="Entity"
+                name="language"
+                value="javascript"
+                class=""
+              />
+            </div>
+          </div>
+        </form>
+        <!-- 2 -->
+        <form class="programUse1">
+          <div
+            class="border border-border-color flex-col justify-start rounded-lg mt-4"
+          >
+            <h5 class="py-4 text-text-light">Vision</h5>
+            <div class="">
+              <label for="Classification" class="text-gray-700"
+                >Classification Image</label
+              >
+              <input
+                type="radio"
+                id="Classification"
+                name="language"
+                value="python"
+                class=""
+              />
+            </div>
+            <div>
+              <label for="Analysis" class="text-gray-700"
+                >Sentiment Analysis</label
+              >
+              <input
+                type="radio"
+                id="Analysis"
+                name="language"
+                value="cpp"
+                class=""
+              />
+            </div>
+            <div>
+              <label for="Object" class="text-gray-700">Object Detection</label>
+              <input
+                type="radio"
+                id="Object"
+                name="language"
+                value="javascript"
+                class=""
+              />
+            </div>
+          </div>
+        </form>
+        <!-- 3 -->
+        <form class="programUse1">
+          <div
+            class="border border-border-color flex-col justify-start rounded-lg mt-4"
+          >
+            <h5 class="py-4 text-text-light">Table</h5>
+            <div class="">
+              <label for="Supervised" class="text-gray-700"
+                >Supervised Classification</label
+              >
+              <input
+                type="radio"
+                id="Supervised"
+                name="language"
+                value="python"
+                class=""
+              />
+            </div>
+            <div>
+              <label for="Regression" class="text-gray-700">Regression</label>
+              <input
+                type="radio"
+                id="Regression"
+                name="language"
+                value="cpp"
+                class=""
+              />
+            </div>
+          </div>
+        </form>
+        <div>
+          <p class="mt-6 text-white border-b border-border-color pb-4">
+            Model Type Option
+          </p>
+        </div>
+        <!-- programing language -->
+        <div class="py-4">
+          <form class="programUse">
+            <div class="">
+              <label for="Multi" class="text-gray-700"
+                >Multi Layer Perception (MLP)</label
+              >
+              <input
+                type="radio"
+                id="Multi"
+                name="language"
+                value="python"
+                class=""
+              />
+            </div>
+            <div>
+              <label for="Convolution" class="text-gray-700"
+                >Convolution Neutral Network (CNN)</label
+              >
+              <input
+                type="radio"
+                id="Convolution"
+                name="language"
+                value="cpp"
+                class=""
+              />
+            </div>
+            <div>
+              <label for="Recurret" class="text-gray-700"
+                >Recurret Neural Network (RNN)</label
+              >
+              <input
+                type="radio"
+                id="Recurret"
+                name="language"
+                value="javascript"
+                class=""
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/src/main.js"></script>
+</html>

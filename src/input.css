@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .sidebar {
+    @apply bg-sidebar-dark bg-opacity-70 left-0 w-[62px] h-[100vh] text-center;
+
+    a {
+      @apply opacity-65 hover:opacity-100;
+    }
+  }
+
+  .newProject {
+    @apply grid gap-y-4;
+
+    a {
+      @apply flex gap-6 items-center;
+    }
+  }
+
+  .bgLogin {
+    background-image: url(assets/loginContainer.png);
+    @apply min-h-[100vh] min-w-[640px]  bg-contain bg-no-repeat text-white;
+  }
+
+  .inputLogin {
+    @apply rounded-lg border h-12 border-[#dcdd] w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-secondary;
+  }
+
+  .dropArea {
+    @apply flex flex-col items-center justify-center border border-gray-300 cursor-pointer max-w-md w-full bg-[#022936] shadow-md rounded-lg px-6 py-2  hover:bg-card-workflow;
+
+    p {
+      @apply group-hover:text-white;
+    }
+  }
+
+  .jsonFile {
+    div {
+      @apply active:bg-card-workflow rounded;
+    }
+    @apply bg-nav-dark border border-white rounded-md py-6 px-4 mt-4;
+    div a img {
+      @apply w-6 h-6;
+    }
+    div a {
+      @apply text-xs;
+    }
+  }
+
+  .testScroll::-webkit-scrollbar {
+    @apply w-0;
+  }
+
+  .testScroll::-webkit-scrollbar-thumb {
+    @apply w-0;
+  }
+
+  .operator {
+    .contentOperator {
+      @apply flex items-center border-b border-border-color justify-between text-green-dark px-4 py-2 cursor-pointer hover:bg-white;
+    }
+  }
+
+  .programUse {
+    div {
+      @apply flex items-center mb-4 justify-between px-3.5;
+      input[type="radio"] {
+        @apply w-5 h-5 bg-transparent;
+      }
+    }
+    label {
+      @apply text-text-light text-xs;
+    }
+  }
+
+  .programUse1 {
+    h5 {
+      @apply px-4;
+    }
+    div div {
+      @apply flex items-center mb-4 justify-between px-4;
+      input[type="radio"] {
+        @apply w-5 h-5 bg-transparent;
+      }
+    }
+    label {
+      @apply text-text-light text-xs;
+    }
+  }
+
+  .button-canvas {
+    @apply bg-card-dark border border-border-color rounded p-1 hover:bg-blue-200 hover:border-white;
+  }
+}
+
+/* .testScroll {
+  scrollbar-color: transparent transparent;
+} */

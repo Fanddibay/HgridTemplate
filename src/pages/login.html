@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/src/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="flex w-full">
+      <div class="bgLogin">
+        <div class="mt-[25vh] pl-12">
+          <h5 class="my-auto leading-tight text-6xl">
+            Deep Learning <br />
+            <span class="font-bold">made easy</span> <br />
+            with our <br />Low Code Tools
+          </h5>
+          <p class="mt-6">
+            With our Low Code Tools, inputting data <br />
+            for Deep Learning is made to be easy and <br />
+            simple.
+          </p>
+        </div>
+      </div>
+      <div class="bg-pink-50 w-full">
+        <div class="mx-auto">
+          <div class="bg-white p-6 justify-center w-[515px] mt-[25vh] mx-auto">
+            <img src="/src/assets/logoFullColor.png" class="mx-auto" alt="" />
+            <form get="#" class="grid gap-y-4" id="loginForm">
+              <h5 class="text-blue-secondary font-bold text-2xl">Sign In</h5>
+              <input
+                type="email"
+                class="inputLogin"
+                placeholder="Email Adress"
+                id="exampleInputEmail1"
+              />
+              <div class="relative my-3">
+                <input
+                  type="password"
+                  class="inputLogin"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                  required
+                  autocomplete="off"
+                />
+                <span
+                  id="togglePassword"
+                  class="fa fa-fw fa-eye absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                ></span>
+              </div>
+              <div
+                id="errorMessage"
+                class="text-red-400 font-light text-xl"
+              ></div>
+
+              <button
+                type="submit"
+                class="bg-blue-secondary py-3 rounded-lg text-white hover:bg-blue-900 mt-12"
+              >
+                Sign In
+              </button>
+              <a href="#" class="text-blue-secondary mx-auto"
+                >Forgot Password</a
+              >
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/src/main.js"></script>
+</html>
