@@ -7,10 +7,18 @@ module.exports = {
       colors: {
         // light mode
         "nav-light": "#F3F3F3",
+        "rigt-content": "#FAFAFA",
         "card-light": "#F3F3F3",
-        "light-dark": "#0B1320",
+        "text-darken": "#0B1320",
+        "text-blue-light": "#33414E",
+        "sidebar-light": "#F7F7F7",
+        "border-light": "#CCCFD3",
+        "page-lane": "#EAEEF1",
+        "bottom-pane": "#F0F1F2",
         // dark mode
         "sidebar-dark": "#E8423A",
+        "hover-dark": "#04465D",
+        "active-dark": "#055774",
         "nav-dark": "#172030",
         "card-dark": "#033446",
         "green-dark": "#279F75",

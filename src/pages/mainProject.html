@@ -15,14 +15,6 @@
   </head>
 
   <style>
-    .resize-handle {
-      cursor: ns-resize;
-      width: 100%;
-      height: 10px;
-      background-color: #1a202c; /* TailwindCSS bg-gray-800 */
-      position: absolute;
-      top: 0;
-    }
     .dropdown-menu {
       display: none;
     }
@@ -43,14 +35,34 @@
       transform: rotate(180deg);
     }
   </style>
-  <body class="overflow-hidden bg-[#0B1320]">
+  <body class="overflow-hidden bg-[#fafafa] dark:bg-[#0B1320]">
     <header
-      class="w-full bg-nav-dark px-4 py-3 justify-between flex items-center border-b border-border-color"
+      class="w-full bg-nav-light dark:bg-nav-dark px-4 py-3 justify-between flex items-center"
     >
-      <img src="/src/assets/logoDark.png" width="150px" alt="" />
+      <img
+        src="/src/assets/logoFullColor.png"
+        class="dark:hidden"
+        width="150px"
+        alt="Logo Light"
+      />
+      <img
+        src="/src/assets/logoDark.png"
+        class="hidden dark:block"
+        width="150px"
+        alt="Logo Dark"
+      />
       <div class="logout">
-        <a href="#" class="text-white flex gap-2">
-          <img src="/src/assets/logoutDark.svg" alt="" />
+        <a href="#" class="text-black dark:text-white flex gap-2">
+          <img
+            src="/src/assets/logoutLight.svg"
+            class="dark:hidden"
+            alt="Logout Light"
+          />
+          <img
+            src="/src/assets/logoutDark.svg"
+            class="hidden dark:block"
+            alt="Logout Dark"
+          />
           <p class="font-bold">Logout</p>
         </a>
       </div>
@@ -58,38 +70,38 @@
     <div class="flex">
       <!-- left content -->
       <aside class="sidebar">
-        <div class="grid gap-y-8 items-center text-center justify-center pt-8">
+        <div class="grid gap-y-8 text-center justify-center pt-8">
           <div class="relative inline-block text-left">
             <a href="#" id="dropdownToggle" class="inline-flex items-center">
               <img src="/src/assets/file-05.svg" alt="Dropdown Icon" />
             </a>
             <div
               id="dropdownMenu"
-              class="hidden absolute mt-2 w-56 rounded-md shadow-lg bg-card-dark z-10 text-white"
+              class="hidden absolute mt-2 w-56 rounded-md shadow-lg bg-card-light dark:bg-card-dark z-10 text-text-darken dark:text-white"
             >
               <div class="py-1">
                 <div class="relative group">
                   <button
                     type="button"
-                    class="flex items-center w-full px-4 py-2 text-sm group-hover:bg-gray-700"
+                    class="flex items-center w-full px-4 py-2 text-sm dark:group-hover:bg-gray-700"
                   >
                     New
                     <i
-                      class="fa-solid fa-arrow-right w-5 h-5 ml-auto group-hover:text-gray-400"
+                      class="fa-solid fa-arrow-right w-5 h-5 ml-auto dark:group-hover:text-gray-400"
                     ></i>
                   </button>
                   <div
-                    class="hidden absolute left-full top-0 -ml-2 w-40 rounded-md shadow-lg bg-card-dark group-hover:block"
+                    class="hidden absolute left-full top-0 -ml-2 w-40 rounded-md shadow-lg bg-white dark:bg-card-dark group-hover:block"
                   >
                     <div class="py-1">
                       <a
                         href="#"
-                        class="block px-4 py-2 text-sm group-hover:bg-gray-700"
+                        class="block px-4 py-2 text-sm dark:group-hover:bg-gray-700"
                         >Open File</a
                       >
                       <a
                         href="#"
-                        class="block px-4 py-2 text-sm group-hover:bg-gray-700"
+                        class="block px-4 py-2 text-sm dark:group-hover:bg-gray-700"
                         >Open Project</a
                       >
                     </div>
@@ -141,41 +153,74 @@
             </a>
           </div>
         </div>
-        <div
-          class="grid bottom-10 left-2 mx-auto absolute gap-y-8 items-center text-center justify-center"
-        >
+        <div class="grid gap-y-8 text-center justify-center pb-28">
           <div>
             <a href="#">
               <img src="/src/assets/user-profile-circle.svg" alt="" />
             </a>
           </div>
           <div>
-            <a href="#">
+            <a href="#" id="themeToggle">
               <img src="/src/assets/settings.svg" alt="" />
             </a>
+            <div
+              id="themeContent"
+              class="hidden absolute -mt-24 ml-12 w-56 rounded-md shadow-lg bg-card-light dark:bg-card-dark z-10 text-text-darken dark:text-white"
+            >
+              <div class="py-1">
+                <button
+                  id="darkMode"
+                  class="text-black dark:text-white flex items-center w-full px-4 py-2 text-sm group-hover:bg-gray-700"
+                >
+                  Dark Mode
+                </button>
+                <button
+                  type="button"
+                  id="lightMode"
+                  class="flex items-center w-full px-4 py-2 text-sm group-hover:bg-gray-700"
+                >
+                  Light
+                </button>
+                <button
+                  href="#"
+                  id="defaultMode"
+                  class="block px-4 py-2 text-sm group-hover:bg-gray-700"
+                >
+                  Default Systems
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </aside>
       <div
-        class="bg-nav-dark h-[100vh] w-[450px] overflow-auto pb-32 testScroll border-r border-border-color"
+        class="bg-sidebar-light dark:bg-nav-dark h-[100vh] w-[450px] overflow-auto pb-32 testScroll border-r border-border-light dark:border-border-color"
       >
         <!-- project content -->
-        <div class="bg-card-dark p-2">
-          <h5 class="text-white text-sm font-medium">Project Management</h5>
+        <div
+          class="dark:bg-card-dark p-2 bg-nav-light border-y border-[#bababa] dark:border-transparent"
+        >
+          <h5 class="text-text-darken dark:text-white text-sm font-medium">
+            Project Management
+          </h5>
         </div>
         <!-- grid project content -->
         <!-- content 1 -->
         <div
-          class="flex items-center justify-between text-white px-4 py-2 cursor-pointer hover:bg-blue-dark"
+          class="flex items-center justify-between group text-white px-4 py-2 cursor-pointer hover:bg-blue-dark"
           onclick="toggleDropdown('dropdown1')"
         >
           <div class="flex items-center gap-3">
-            <img src="/src/assets/folder.svg" alt="folder icon" />
-            <h5>HD211 projects</h5>
+            <i
+              class="fa-regular fa-folder fa-xl dark:text-blue-secondary text-text-darken"
+            ></i>
+            <h5 class="dark:text-white text-text-darken group-hover:text-white">
+              HD211 projects
+            </h5>
           </div>
           <svg
             id="icon-dropdown1"
-            class="w-4 h-4 transition-transform duration-200"
+            class="w-4 h-4 transition-transform duration-200 dark:text-blue-secondary text-text-darken"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -196,16 +241,18 @@
           <ul class="py-1 text-white">
             <li class="relative">
               <div
-                class="flex items-center justify-between px-4 py-2 text-white cursor-pointer hover:bg-blue-dark"
+                class="flex group items-center justify-between px-4 py-2 text-white cursor-pointer hover:bg-blue-dark"
                 onclick="toggleDropdown('subDropdown1')"
               >
                 <div class="flex items-center gap-4">
-                  <img src="/src/assets/folder.svg" alt="folder icon" />
-                  <span>Project 1</span>
+                  <i class="fa-regular fa-folder-open iconOperator"></i>
+                  <span class="textOperator group-hover:text-white"
+                    >Project 1</span
+                  >
                 </div>
                 <svg
                   id="icon-subDropdown1"
-                  class="w-4 h-4 transition-transform duration-200"
+                  class="w-4 h-4 transition-transform duration-200 iconOperator"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -224,16 +271,18 @@
                 <ul>
                   <li class="relative">
                     <div
-                      class="flex items-center justify-between px-4 py-2 text-white cursor-pointer hover:bg-blue-dark"
+                      class="flex items-center justify-between group px-4 py-2 text-white cursor-pointer hover:bg-blue-dark"
                       onclick="toggleDropdown('subSubDropdown1')"
                     >
                       <div class="flex items-center gap-4">
-                        <img src="/src/assets/folder.svg" alt="folder icon" />
-                        <span>Subproject 1.1</span>
+                        <i class="fa-regular fa-folder-open iconOperator"></i>
+                        <span class="textOperator group-hover:text-white"
+                          >Subproject 1.1</span
+                        >
                       </div>
                       <svg
                         id="icon-subSubDropdown1"
-                        class="w-4 h-4 transition-transform duration-200"
+                        class="w-4 h-4 transition-transform duration-200 iconOperator"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -256,37 +305,40 @@
                         <li>
                           <a
                             href="#"
-                            class="flex gap-3 items-center px-4 py-2 hover:bg-blue-dark"
+                            class="flex gap-3 items-center px-4 py-2 hover:bg-blue-dark group"
                           >
-                            <img
-                              src="/src/assets/file-04.svg"
-                              alt="folder icon"
-                            />
-                            <span>Project.Json</span>
+                            <i
+                              class="fa-regular fa-file-lines iconOperator"
+                            ></i>
+                            <span class="textOperator group-hover:text-white"
+                              >Project.Json</span
+                            >
                           </a>
                         </li>
                         <li>
                           <a
                             href="#"
-                            class="flex gap-3 items-center px-4 py-2 hover:bg-blue-dark"
+                            class="flex gap-3 items-center px-4 py-2 hover:bg-blue-dark group"
                           >
-                            <img
-                              src="/src/assets/file-04.svg"
-                              alt="folder icon"
-                            />
-                            <span>newfile.json</span>
+                            <i
+                              class="fa-regular fa-file-lines iconOperator"
+                            ></i>
+                            <span class="textOperator group-hover:text-white"
+                              >newfile.json</span
+                            >
                           </a>
                         </li>
                         <li>
                           <a
                             href="#"
-                            class="flex gap-3 items-center px-4 py-2 hover:bg-blue-dark"
+                            class="flex gap-3 items-center px-4 py-2 hover:bg-blue-dark group"
                           >
-                            <img
-                              src="/src/assets/file-04.svg"
-                              alt="folder icon"
-                            />
-                            <span>newProject.json</span>
+                            <i
+                              class="fa-regular fa-file-lines iconOperator"
+                            ></i>
+                            <span class="textOperator group-hover:text-white"
+                              >newProject.json</span
+                            >
                           </a>
                         </li>
                       </ul>
@@ -295,28 +347,34 @@
                   <li class="block">
                     <a
                       href="#"
-                      class="flex gap-3 items-center px-4 py-2 hover:bg-blue-dark"
+                      class="flex gap-3 items-center px-4 py-2 hover:bg-blue-dark group"
                     >
-                      <img src="/src/assets/folder.svg" alt="folder icon" />
-                      <span>Subproject 1.2</span>
+                      <i class="fa-regular fa-folder-open iconOperator"></i>
+                      <span class="textOperator group-hover:text-white"
+                        >Subproject 1.2</span
+                      >
                     </a>
                   </li>
                 </ul>
               </div>
             </li>
             <li>
-              <a href="#" class="block px-4 py-2 hover:bg-blue-dark">
+              <a href="#" class="block px-4 py-2 hover:bg-blue-dark group">
                 <div class="flex items-center gap-4">
-                  <img src="/src/assets/folder.svg" alt="folder icon" />
-                  <span>Project 2</span>
+                  <i class="fa-regular fa-folder-open iconOperator"></i>
+                  <span class="textOperator group-hover:text-white"
+                    >Project 2</span
+                  >
                 </div>
               </a>
             </li>
             <li>
-              <a href="#" class="block px-4 py-2 hover:bg-blue-dark">
+              <a href="#" class="block px-4 py-2 hover:bg-blue-dark group">
                 <div class="flex items-center gap-4">
-                  <img src="/src/assets/folder.svg" alt="folder icon" />
-                  <span>Project 3</span>
+                  <i class="fa-regular fa-folder-open iconOperator"></i>
+                  <span class="textOperator group-hover:text-white"
+                    >Project 3</span
+                  >
                 </div>
               </a>
             </li>
@@ -325,15 +383,19 @@
         <!-- end dropdown content 1 -->
         <!-- content 2 -->
         <div
-          class="flex items-center justify-between text-white px-4 py-2 cursor-pointer hover:bg-blue-dark"
+          class="flex items-center justify-between text-white px-4 py-2 cursor-pointer hover:bg-blue-dark group"
         >
           <div class="flex items-center gap-3">
-            <img src="/src/assets/folder.svg" alt="folder icon" />
-            <h5>HD253 projects</h5>
+            <i
+              class="fa-regular fa-folder fa-xl dark:text-blue-secondary text-text-darken"
+            ></i>
+            <h5 class="dark:text-white text-text-darken group-hover:text-white">
+              HD211 projects
+            </h5>
           </div>
           <svg
             id="icon-dropdown1"
-            class="w-4 h-4 transition-transform duration-200"
+            class="w-4 h-4 transition-transform duration-200 dark:text-blue-secondary text-text-darken"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -350,15 +412,19 @@
         <!-- end content 2 -->
         <!-- content 3 -->
         <div
-          class="flex items-center justify-between text-white px-4 py-2 cursor-pointer hover:bg-blue-dark"
+          class="flex items-center justify-between text-white px-4 py-2 cursor-pointer hover:bg-blue-dark group"
         >
           <div class="flex items-center gap-3">
-            <img src="/src/assets/folder.svg" alt="folder icon" />
-            <h5>HD293 projects</h5>
+            <i
+              class="fa-regular fa-folder fa-xl dark:text-blue-secondary text-text-darken"
+            ></i>
+            <h5 class="dark:text-white text-text-darken group-hover:text-white">
+              HD211 projects
+            </h5>
           </div>
           <svg
             id="icon-dropdown1"
-            class="w-4 h-4 transition-transform duration-200"
+            class="w-4 h-4 transition-transform duration-200 dark:text-blue-secondary text-text-darken"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -375,15 +441,19 @@
         <!-- end content 3 -->
         <!-- content 4 -->
         <div
-          class="flex items-center justify-between text-white px-4 py-2 cursor-pointer hover:bg-blue-dark"
+          class="flex items-center justify-between text-white px-4 py-2 cursor-pointer hover:bg-blue-dark group"
         >
           <div class="flex items-center gap-3">
-            <img src="/src/assets/folder.svg" alt="folder icon" />
-            <h5>HD1992 projects</h5>
+            <i
+              class="fa-regular fa-folder fa-xl dark:text-blue-secondary text-text-darken"
+            ></i>
+            <h5 class="dark:text-white text-text-darken group-hover:text-white">
+              HD211 projects
+            </h5>
           </div>
           <svg
             id="icon-dropdown1"
-            class="w-4 h-4 transition-transform duration-200"
+            class="w-4 h-4 transition-transform duration-200 dark:text-blue-secondary text-text-darken"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -401,8 +471,12 @@
         <!-- end project content -->
         <!-- operator -->
         <div class="operator">
-          <div class="bg-green-dark p-2 my-3">
-            <h5 class="text-white text-sm font-medium">Operator</h5>
+          <div
+            class="dark:bg-green-dark p-2 my-3 bg-nav-light border-y border-[#bababa]"
+          >
+            <h5 class="text-text-darken dark:text-white text-sm font-medium">
+              Operator
+            </h5>
           </div>
           <!-- content 1 -->
           <div class="contentOperator" onclick="toggleDropdown('dropdown2')">
@@ -428,10 +502,12 @@
           <!-- content 1 -->
           <!-- dropdown content  -->
           <div id="dropdown2" class="dropdown-menu relative">
-            <ul class="py-1 text-white bg-dark-blue">
+            <ul
+              class="py-1 text-text-darken dark:text-white bg-transparent dark:bg-dark-blue"
+            >
               <li class="relative">
                 <div
-                  class="flex items-center justify-between px-4 py-2 text-white cursor-pointer hover:bg-blue-dark"
+                  class="flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-green-dark"
                 >
                   <div class="flex items-center gap-4">
                     <img src="/src/assets/package-01.svg" alt="folder icon" />
@@ -440,7 +516,7 @@
                 </div>
               </li>
               <li>
-                <a href="#" class="block px-4 py-2 hover:bg-blue-dark">
+                <a href="#" class="block px-4 py-2 hover:bg-green-dark">
                   <div class="flex items-center gap-4">
                     <img src="/src/assets/perspective.svg" alt="folder icon" />
                     <span>Regex Tokenizer</span>
@@ -448,7 +524,7 @@
                 </a>
               </li>
               <li>
-                <a href="#" class="block px-4 py-2 hover:bg-blue-dark">
+                <a href="#" class="block px-4 py-2 hover:bg-green-dark">
                   <div class="flex items-center gap-4">
                     <img src="/src/assets/contrast.svg" alt="folder icon" />
                     <span>Regex Subtitution</span>
@@ -456,7 +532,7 @@
                 </a>
               </li>
               <li>
-                <a href="#" class="block px-4 py-2 hover:bg-blue-dark">
+                <a href="#" class="block px-4 py-2 hover:bg-green-dark">
                   <div class="flex items-center gap-4">
                     <img src="/src/assets/server-02.svg" alt="folder icon" />
                     <span>Data Selector</span>
@@ -562,13 +638,13 @@
         <!-- page link workflow-->
         <div class="m-2 text-sm flex items-center gap-4">
           <div
-            class="bg-card-workflow gap-4 p-2 flex items-center rounded text-white"
+            class="bg-page-lane shadow dark:shadow-none text-text-darken dark:bg-card-workflow gap-4 p-2 flex items-center rounded dark:text-white"
           >
             <h5>HD211 Projects</h5>
             <i class="fa-solid fa-xmark"></i>
           </div>
           <div
-            class="bg-card-dark text-text-dark gap-4 p-2 flex items-center rounded"
+            class="bg-white dark:bg-card-dark text-text-darken shadow dark:shadow-none dark:text-text-dark gap-4 p-2 flex items-center rounded"
           >
             <h5>HD211 projects not selected</h5>
             <i class="fa-solid fa-xmark"></i>
@@ -621,17 +697,17 @@
         <div class="my-4 bg-white w-full h-full">Canvas in here!</div>
         <!-- bottom panel -->
         <div
-          class="absolute bottom-0 right-5 hidden text-nav-dark text-xl cursor-pointer hover:text-card-workflow"
+          class="absolute bottom-[100px] right-5 text-text-darken dark:text-white text-xl cursor-pointer hover:text-card-workflow"
           id="togglePanel"
         >
           <i class="fa-solid fa-circle-info fa-xl"></i>
         </div>
         <div
           id="resizeContainer"
-          class="text-white bg-nav-dark w-full overflow-auto absolute testScroll bottom-0"
+          class="dark:text-white text-text-darken bg-bottom-pane dark:bg-nav-dark w-full overflow-auto absolute testScroll bottom-0"
         >
-          <div id="resizeHandle" class="resize-handle"></div>
-          <div class="p-10 text-white text-sm">
+          <div id="resizeHandle" class="resizeHandle"></div>
+          <div class="p-10 text-text-darken dark:text-white text-sm">
             <!-- Padding top untuk menghindari teks tersembunyi di balik handle -->
             <div class="flex items-center justify-between mb-4">
               <h5 class="text-base font-medium">How to use</h5>
@@ -660,11 +736,17 @@
       </div>
       <!-- right content -->
       <div
-        class="p-4 justify-start w-[450px] bg-nav-dark h-[100vh] testScroll overflow-auto pb-24"
+        class="p-4 border-l dark:border-border-color border-l-border-light justify-start w-[450px] bg-rigt-content dark:bg-nav-dark h-[100vh] testScroll overflow-auto pb-24"
       >
         <div>
-          <h5 class="bg-card-dark text-white py-2 p-4">Workflow config</h5>
-          <p class="mt-6 text-white border-b border-border-color pb-4">
+          <h5
+            class="bg-page-lane dark:bg-card-dark text-text-darken dark:text-white py-2 p-4"
+          >
+            Workflow config
+          </h5>
+          <p
+            class="mt-6 text-text-darken dark:text-white border-b border-border-color pb-4"
+          >
             Program Use
           </p>
         </div>
@@ -703,7 +785,9 @@
             </div>
           </form>
         </div>
-        <p class="mt-2 text-white border-b border-border-color pb-4">
+        <p
+          class="mt-2 text-text-darken dark:text-white border-b border-border-color pb-4"
+        >
           Problem Selection
         </p>
         <!-- problem selection -->
@@ -824,7 +908,9 @@
           </div>
         </form>
         <div>
-          <p class="mt-6 text-white border-b border-border-color pb-4">
+          <p
+            class="mt-6 text-text-darken dark:text-white border-b border-border-color pb-4"
+          >
             Model Type Option
           </p>
         </div>

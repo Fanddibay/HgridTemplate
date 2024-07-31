@@ -13,25 +13,98 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="overflow-hidden bg-[#151515]">
+  <body class="overflow-hidden bg-[#fafafa] dark:bg-[#0B1320]">
     <header
-      class="w-full bg-nav-dark px-4 py-3 justify-between flex items-center"
+      class="w-full bg-nav-light dark:bg-nav-dark px-4 py-3 justify-between flex items-center"
     >
-      <img src="/src/assets/logoDark.png" width="150px" alt="" />
+      <img
+        src="/src/assets/logoFullColor.png"
+        class="dark:hidden"
+        width="150px"
+        alt="Logo Light"
+      />
+      <img
+        src="/src/assets/logoDark.png"
+        class="hidden dark:block"
+        width="150px"
+        alt="Logo Dark"
+      />
       <div class="logout">
-        <a href="#" class="text-white flex gap-2">
-          <img src="/src/assets/logoutDark.svg" alt="" />
+        <a href="#" class="text-black dark:text-white flex gap-2">
+          <img
+            src="/src/assets/logoutLight.svg"
+            class="dark:hidden"
+            alt="Logout Light"
+          />
+          <img
+            src="/src/assets/logoutDark.svg"
+            class="hidden dark:block"
+            alt="Logout Dark"
+          />
           <p class="font-bold">Logout</p>
         </a>
       </div>
     </header>
     <div class="flex">
       <aside class="sidebar">
-        <div class="grid gap-y-8 items-center text-center justify-center pt-8">
-          <div>
-            <a href="#">
-              <img src="/src/assets/file-05.svg" alt="" />
+        <div class="grid gap-y-8 text-center justify-center pt-8">
+          <div class="relative inline-block text-left">
+            <a href="#" id="dropdownToggle" class="inline-flex items-center">
+              <img src="/src/assets/file-05.svg" alt="Dropdown Icon" />
             </a>
+            <div
+              id="dropdownMenu"
+              class="hidden absolute mt-2 w-56 rounded-md shadow-lg bg-card-light dark:bg-card-dark z-10 text-text-darken dark:text-white"
+            >
+              <div class="py-1">
+                <div class="relative group">
+                  <button
+                    type="button"
+                    class="flex items-center w-full px-4 py-2 text-sm dark:group-hover:bg-gray-700"
+                  >
+                    New
+                    <i
+                      class="fa-solid fa-arrow-right w-5 h-5 ml-auto dark:group-hover:text-gray-400"
+                    ></i>
+                  </button>
+                  <div
+                    class="hidden absolute left-full top-0 -ml-2 w-40 rounded-md shadow-lg bg-white dark:bg-card-dark group-hover:block"
+                  >
+                    <div class="py-1">
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm dark:group-hover:bg-gray-700"
+                        >Open File</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm dark:group-hover:bg-gray-700"
+                        >Open Project</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="flex items-center w-full px-4 py-2 text-sm group-hover:bg-gray-700"
+                >
+                  Open
+                  <i
+                    class="fa-solid fa-arrow-right w-5 h-5 ml-auto group-hover:text-gray-400"
+                  ></i>
+                </button>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm group-hover:bg-gray-700"
+                  >Settings</a
+                >
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm group-hover:bg-gray-700"
+                  >Help</a
+                >
+              </div>
+            </div>
           </div>
           <div>
             <a href="#">
@@ -57,52 +130,80 @@
             </a>
           </div>
         </div>
-        <div
-          class="grid bottom-10 left-3 mx-auto absolute gap-y-8 items-center text-center justify-center"
-        >
+        <div class="grid gap-y-8 text-center justify-center pb-28">
           <div>
             <a href="#">
               <img src="/src/assets/user-profile-circle.svg" alt="" />
             </a>
           </div>
           <div>
-            <a href="#">
+            <a href="#" id="themeToggle">
               <img src="/src/assets/settings.svg" alt="" />
             </a>
+            <div
+              id="themeContent"
+              class="hidden absolute -mt-24 ml-12 w-56 rounded-md shadow-lg bg-card-light dark:bg-card-dark z-10 text-text-darken dark:text-white"
+            >
+              <div class="py-1">
+                <button
+                  id="darkMode"
+                  class="text-black dark:text-white flex items-center w-full px-4 py-2 text-sm group-hover:bg-gray-700"
+                >
+                  Dark Mode
+                </button>
+                <button
+                  type="button"
+                  id="lightMode"
+                  class="flex items-center w-full px-4 py-2 text-sm group-hover:bg-gray-700"
+                >
+                  Light
+                </button>
+                <button
+                  href="#"
+                  id="defaultMode"
+                  class="block px-4 py-2 text-sm group-hover:bg-gray-700"
+                >
+                  Default Systems
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </aside>
-      <div class="bg-card-dark h-[272px] m-auto p-6">
+      <div class="bg-card-light dark:bg-card-dark h-[272px] m-auto p-6">
         <div class="flex justify-between items-start">
-          <img src="/src/assets//Featuredicon.png" alt="" />
+          <img
+            src="/src/assets/lightMode/FeaturedIconLight.png"
+            class="dark:hidden block"
+            alt=""
+          />
+          <img
+            src="/src/assets/Featuredicon.png"
+            class="dark:block hidden"
+            alt=""
+          />
           <a href="#">
-            <i class="fa-solid fa-xmark text-green-dark"></i>
+            <i
+              class="fa-solid fa-xmark text-text-darken dark:text-green-dark"
+            ></i>
           </a>
         </div>
-        <h5 class="text-blue-dark mt-4">New Project Name</h5>
+        <h5 class="text-text-darken dark:text-blue-dark mt-4">
+          New Project Name
+        </h5>
         <form action="mainProject.html">
           <input
             type="text"
-            class="w-96 h-12 pl-3.5 pb-2 bg-cyan-800 rounded mt-5"
+            class="w-96 h-12 pl-3.5 pb-2 bg-transparent border border-text-darken dark:border-transparent dark:bg-cyan-800 rounded mt-5"
             placeholder="type here..."
           />
           <div class="justify-end flex gap-4 mt-4">
-            <a
-              type="reset"
-              href="index.html"
-              class="py-2 px-5 rounded border-[#0A677A] border text-[#E6F1F5]"
-            >
-              Back
-            </a>
-            <button
-              type="submit"
-              class="py-2 px-5 rounded bg-[#04465D] text-[#B2D4E0]"
-            >
-              Save
-            </button>
+            <a type="reset" href="index.html" class="secondaryButton"> Back </a>
+            <button type="submit" class="primaryButton">Save</button>
           </div>
         </form>
       </div>
     </div>
   </body>
+  <script src="/src/main.js"></script>
 </html>

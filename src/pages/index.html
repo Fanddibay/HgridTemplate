@@ -44,131 +44,147 @@
           <p class="font-bold">Logout</p>
         </a>
       </div>
-      <button id="toggleMode" class="text-black dark:text-white">
-        <i class="fas fa-adjust"></i> Toggle Mode
-      </button>
     </header>
     <div class="flex">
       <aside class="sidebar">
-        <div class="grid gap-y-8 items-center text-center justify-center pt-8">
+        <div class="grid gap-y-8 text-center justify-center pt-8">
+          <div class="relative inline-block text-left">
+            <a href="#" id="dropdownToggle" class="inline-flex items-center">
+              <img src="/src/assets/file-05.svg" alt="Dropdown Icon" />
+            </a>
+            <div
+              id="dropdownMenu"
+              class="hidden absolute mt-2 w-56 rounded-md shadow-lg bg-card-light dark:bg-card-dark z-10 text-text-darken dark:text-white"
+            >
+              <div class="py-1">
+                <div class="relative group">
+                  <button
+                    type="button"
+                    class="flex items-center w-full px-4 py-2 text-sm dark:group-hover:bg-gray-700"
+                  >
+                    New
+                    <i
+                      class="fa-solid fa-arrow-right w-5 h-5 ml-auto dark:group-hover:text-gray-400"
+                    ></i>
+                  </button>
+                  <div
+                    class="hidden absolute left-full top-0 -ml-2 w-40 rounded-md shadow-lg bg-white dark:bg-card-dark group-hover:block"
+                  >
+                    <div class="py-1">
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm dark:group-hover:bg-gray-700"
+                        >Open File</a
+                      >
+                      <a
+                        href="#"
+                        class="block px-4 py-2 text-sm dark:group-hover:bg-gray-700"
+                        >Open Project</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="flex items-center w-full px-4 py-2 text-sm group-hover:bg-gray-700"
+                >
+                  Open
+                  <i
+                    class="fa-solid fa-arrow-right w-5 h-5 ml-auto group-hover:text-gray-400"
+                  ></i>
+                </button>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm group-hover:bg-gray-700"
+                  >Settings</a
+                >
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm group-hover:bg-gray-700"
+                  >Help</a
+                >
+              </div>
+            </div>
+          </div>
           <div>
             <a href="#">
-              <img
-                src="/src/assets/file-05-light.svg"
-                class="dark:hidden"
-                alt="File Light"
-              />
-              <img
-                src="/src/assets/file-05.svg"
-                class="hidden dark:block"
-                alt="File Dark"
-              />
+              <img src="/src/assets/search-02.svg" alt="" />
             </a>
           </div>
           <div>
             <a href="#">
-              <img
-                src="/src/assets/search-02-light.svg"
-                class="dark:hidden"
-                alt="Search Light"
-              />
-              <img
-                src="/src/assets/search-02.svg"
-                class="hidden dark:block"
-                alt="Search Dark"
-              />
+              <img src="/src/assets/cursor-06.svg" alt="" />
             </a>
           </div>
           <div>
             <a href="#">
-              <img
-                src="/src/assets/cursor-06-light.svg"
-                class="dark:hidden"
-                alt="Cursor Light"
-              />
-              <img
-                src="/src/assets/cursor-06.svg"
-                class="hidden dark:block"
-                alt="Cursor Dark"
-              />
-            </a>
-          </div>
-          <div>
-            <a href="#">
-              <img
-                src="/src/assets/fluent-mdl2_data-management-settings-light.svg"
-                class="dark:hidden"
-                alt="Settings Light"
-              />
               <img
                 src="/src/assets/fluent-mdl2_data-management-settings.svg"
-                class="hidden dark:block"
-                alt="Settings Dark"
+                alt=""
               />
             </a>
           </div>
           <div>
             <a href="#">
-              <img
-                src="/src/assets/data-01-light.svg"
-                class="dark:hidden"
-                alt="Data Light"
-              />
-              <img
-                src="/src/assets/data-01.svg"
-                class="hidden dark:block"
-                alt="Data Dark"
-              />
+              <img src="/src/assets/data-01.svg" alt="" />
             </a>
           </div>
         </div>
-        <div
-          class="grid bottom-10 left-3 mx-auto absolute gap-y-8 items-center text-center justify-center"
-        >
+        <div class="grid gap-y-8 text-center justify-center pb-28">
           <div>
             <a href="#">
-              <img
-                src="/src/assets/user-profile-circle-light.svg"
-                class="dark:hidden"
-                alt="User Light"
-              />
-              <img
-                src="/src/assets/user-profile-circle.svg"
-                class="hidden dark:block"
-                alt="User Dark"
-              />
+              <img src="/src/assets/user-profile-circle.svg" alt="" />
             </a>
           </div>
           <div>
-            <a href="#">
-              <img
-                src="/src/assets/settings-light.svg"
-                class="dark:hidden"
-                alt="Settings Light"
-              />
-              <img
-                src="/src/assets/settings.svg"
-                class="hidden dark:block"
-                alt="Settings Dark"
-              />
+            <a href="#" id="themeToggle">
+              <img src="/src/assets/settings.svg" alt="" />
             </a>
+            <div
+              id="themeContent"
+              class="hidden absolute -mt-24 ml-12 w-56 rounded-md shadow-lg bg-card-light dark:bg-card-dark z-10 text-text-darken dark:text-white"
+            >
+              <div class="py-1">
+                <button
+                  id="darkMode"
+                  class="text-black dark:text-white flex items-center w-full px-4 py-2 text-sm group-hover:bg-gray-700"
+                >
+                  Dark Mode
+                </button>
+                <button
+                  type="button"
+                  id="lightMode"
+                  class="flex items-center w-full px-4 py-2 text-sm group-hover:bg-gray-700"
+                >
+                  Light
+                </button>
+                <button
+                  href="#"
+                  id="defaultMode"
+                  class="block px-4 py-2 text-sm group-hover:bg-gray-700"
+                >
+                  Default Systems
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </aside>
+
       <div
         class="bg-card-light dark:bg-card-dark h-[274px] w-[304px] m-auto p-8"
       >
-        <h5 class="text-blue-light dark:text-blue-dark text-2xl font-bold">
+        <h5 class="text-text-darken dark:text-blue-dark text-2xl font-bold">
           Start
         </h5>
         <div class="newProject">
           <div class="mt-6">
             <a
               href="project.html"
-              class="text-green-light dark:text-green-dark"
+              class="text-text-darken dark:text-green-dark"
             >
               <img
-                src="/src/assets/file-medical-light.svg"
+                src="/src/assets/lightMode/file-medicalLight.svg"
                 class="dark:hidden"
                 alt="New Project Light"
               />
@@ -183,10 +199,10 @@
           <div>
             <a
               href="newFile.html"
-              class="text-green-light dark:text-green-dark"
+              class="text-text-darken dark:text-green-dark"
             >
               <img
-                src="/src/assets/file-medical-light.svg"
+                src="/src/assets/lightMode/file-medicalLight.svg"
                 class="dark:hidden"
                 alt="New File Light"
               />
@@ -199,9 +215,12 @@
             </a>
           </div>
           <div>
-            <a href="openFile.html" class="text-blue-light dark:text-blue-dark">
+            <a
+              href="openFile.html"
+              class="text-text-darken dark:text-blue-dark"
+            >
               <img
-                src="/src/assets/file-export-light.svg"
+                src="/src/assets/lightMode/file-exportLight.svg"
                 class="dark:hidden"
                 alt="Open File Light"
               />
@@ -214,9 +233,9 @@
             </a>
           </div>
           <div>
-            <a href="#" class="text-blue-light dark:text-blue-dark">
+            <a href="#" class="text-text-darken dark:text-blue-dark">
               <img
-                src="/src/assets/folder-open-light.svg"
+                src="/src/assets/lightMode/folder-openLight.svg"
                 class="dark:hidden"
                 alt="Open Project Light"
               />
@@ -232,12 +251,5 @@
       </div>
     </div>
   </body>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const toggleButton = document.getElementById("toggleMode");
-      toggleButton.addEventListener("click", function () {
-        document.documentElement.classList.toggle("dark");
-      });
-    });
-  </script>
+  <script src="/src/main.js"></script>
 </html>

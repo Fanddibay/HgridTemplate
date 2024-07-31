@@ -4,7 +4,7 @@
 
 @layer components {
   .sidebar {
-    @apply bg-sidebar-dark bg-opacity-70 left-0 w-[62px] h-[100vh] text-center;
+    @apply bg-sidebar-dark bg-opacity-70 w-[62px] h-[100vh] text-center flex flex-col justify-between;
 
     a {
       @apply opacity-65 hover:opacity-100;
@@ -29,23 +29,20 @@
   }
 
   .dropArea {
-    @apply flex flex-col items-center justify-center border border-gray-300 cursor-pointer max-w-md w-full bg-[#022936] shadow-md rounded-lg px-6 py-2  hover:bg-card-workflow;
-
-    p {
-      @apply group-hover:text-white;
-    }
+    @apply flex flex-col items-center justify-center border dark:border-gray-300 cursor-pointer max-w-md w-full bg-transparent border-text-darken dark:bg-[#022936] dark:shadow-md rounded-lg px-6 py-2 hover:bg-text-darken  dark:hover:bg-card-workflow;
   }
 
   .jsonFile {
+    @apply bg-transparent border-text-darken dark:bg-nav-dark border dark:border-white rounded-md py-6 px-4 mt-4;
     div {
-      @apply active:bg-card-workflow rounded;
+      @apply hover:bg-card-workflow hover:p-1 p-1 rounded;
     }
-    @apply bg-nav-dark border border-white rounded-md py-6 px-4 mt-4;
+
     div a img {
       @apply w-6 h-6;
     }
     div a {
-      @apply text-xs;
+      @apply text-xs text-text-darken hover:text-white dark:text-white;
     }
   }
 
@@ -59,7 +56,11 @@
 
   .operator {
     .contentOperator {
-      @apply flex items-center border-b border-border-color justify-between text-green-dark px-4 py-2 cursor-pointer hover:bg-white;
+      @apply flex items-center border-b border-border-color justify-between text-text-darken dark:text-green-dark px-4 py-2 cursor-pointer hover:bg-green-dark hover:text-white dark:hover:text-white;
+    }
+
+    li div {
+      @apply hover:text-white;
     }
   }
 
@@ -71,13 +72,13 @@
       }
     }
     label {
-      @apply text-text-light text-xs;
+      @apply text-text-darken dark:text-text-light text-xs;
     }
   }
 
   .programUse1 {
     h5 {
-      @apply px-4;
+      @apply px-4 text-text-darken dark:text-text-light;
     }
     div div {
       @apply flex items-center mb-4 justify-between px-4;
@@ -86,12 +87,32 @@
       }
     }
     label {
-      @apply text-text-light text-xs;
+      @apply text-text-darken dark:text-text-light text-xs;
     }
   }
 
   .button-canvas {
-    @apply bg-card-dark border border-border-color rounded p-1 hover:bg-blue-200 hover:border-white;
+    @apply dark:bg-card-dark border dark:border-border-color rounded p-1 dark:hover:bg-blue-200 hover:border-text-darken dark:hover:border-white;
+  }
+
+  .secondaryButton {
+    @apply py-2 px-5 rounded text-text-darken hover:bg-text-darken hover:text-white border-text-darken  dark:border-hover-dark border dark:text-[#E6F1F5] dark:hover:bg-hover-dark;
+  }
+
+  .primaryButton {
+    @apply py-2 px-5 rounded  bg-text-darken hover:bg-slate-700  text-white dark:bg-hover-dark dark:text-[#B2D4E0] dark:hover:bg-active-dark;
+  }
+
+  .iconOperator {
+    @apply text-text-darken dark:text-blue-secondary;
+  }
+
+  .textOperator {
+    @apply text-text-darken dark:text-white;
+  }
+
+  .resizeHandle {
+    @apply top-0 absolute bg-bottom-pane h-2 w-full cursor-n-resize dark:bg-gray-800;
   }
 }
 

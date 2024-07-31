@@ -150,13 +150,6 @@ function toggleDropdown(id) {
   icon.classList.toggle("rotate-180");
 }
 
-const dropdownToggle = document.getElementById("dropdownToggle");
-const dropdownMenu = document.getElementById("dropdownMenu");
-
-dropdownToggle.addEventListener("click", () => {
-  dropdownMenu.classList.toggle("hidden");
-});
-
 document.addEventListener("DOMContentLoaded", () => {
   // resize js
   const resizeHandle = document.getElementById("resizeHandle");
@@ -201,4 +194,53 @@ document.addEventListener("DOMContentLoaded", () => {
       togglePanel.classList.add("hidden");
     });
   });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdownToggle = document.getElementById("dropdownToggle");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+
+  dropdownToggle.addEventListener("click", () => {
+    dropdownMenu.classList.toggle("hidden");
+  });
+  const themeToggle = document.getElementById("themeToggle");
+  const themeContent = document.getElementById("themeContent");
+
+  themeToggle.addEventListener("click", () => {
+    themeContent.classList.toggle("hidden");
+  });
+
+  const toggleDark = document.getElementById("darkMode");
+  const toggleLight = document.getElementById("lightMode");
+  const toggleDefault = document.getElementById("defaultMode");
+
+  toggleDark.addEventListener("click", function () {
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+    themeContent.classList.toggle("hidden");
+  });
+
+  toggleLight.addEventListener("click", function () {
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+    themeContent.classList.toggle("hidden");
+  });
+
+  toggleDefault.addEventListener("click", function () {
+    document.documentElement.classList.remove("dark");
+    localStorage.removeItem("theme");
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.documentElement.classList.add("dark");
+    }
+    themeContent.classList.toggle("hidden");
+  });
+
+  // Apply theme on load based on preference
+  if (localStorage.getItem("theme") === "dark") {
+    document.documentElement.classList.add("dark");
+  } else if (localStorage.getItem("theme") === "light") {
+    document.documentElement.classList.remove("dark");
+  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.documentElement.classList.add("dark");
+  }
 });
