@@ -244,3 +244,106 @@ document.addEventListener("DOMContentLoaded", function () {
     document.documentElement.classList.add("dark");
   }
 });
+
+// onboarding js
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const driver = window.driver.js.driver;
+
+//   const driverObj = driver({
+//     showProgress: true,
+//     showButtons: ["next", "previous"],
+//     steps: [
+//       {
+//         element: ".sidebar",
+//         popover: {
+//           title: "What’s New?",
+//           description:
+//             "Sidebar menu to create and open new file or project, go to settings, or go to the help page.",
+//           side: "left",
+//           align: "start",
+//         },
+//       },
+//       {
+//         element: ".middleCanvas",
+//         popover: {
+//           title: "Middle Tour Exampleee",
+//           description:
+//             "Here is the code example showing animated tour. Let's walk you through it.",
+//           side: "left",
+//           align: "start",
+//         },
+//       },
+//     ],
+//   });
+
+//   driverObj.drive();
+// });
+
+// JavaScript for handling active tab state
+document.addEventListener("DOMContentLoaded", function () {
+  const tabs = document.querySelectorAll(".tab-link");
+  const tabContents = document.querySelectorAll(".tab-content");
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Remove active class from all tabs and contents
+      tabs.forEach((t) =>
+        t.classList.remove(
+          "dark:border-blue-400",
+          "border-red-400",
+          "dark:text-blue-400",
+          "text-red-400"
+        )
+      );
+      tabContents.forEach((tc) => tc.classList.remove("active"));
+
+      // Add active class to clicked tab and corresponding content
+      this.classList.add(
+        "dark:border-blue-400",
+        "border-red-400",
+        "dark:text-blue-400",
+        "text-red-400"
+      );
+      tabContents[index].classList.add("active");
+    });
+  });
+
+  // Set first tab as active by default
+  tabs[0].classList.add(
+    "dark:border-blue-400",
+    "border-red-400",
+    "dark:text-blue-400",
+    "text-red-400"
+  );
+  tabContents[0].classList.add("active");
+});
+
+// workflow toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleWorkflow = document.getElementById("toggleWorkflow");
+  const toggleConfig = document.getElementById("toggleNode");
+
+  const workflowCotent = document.querySelector(".workflow");
+  const configContent = document.getElementById("tabs");
+
+  toggleConfig.addEventListener("click", () => {
+    workflowCotent.classList.add("hidden");
+    toggleConfig.classList.add("bg-red-400");
+    toggleConfig.classList.add("dark:bg-blue-400");
+    toggleWorkflow.addEventListener("click", () => {
+      workflowCotent.classList.add("hidden");
+      configContent.classList.add("hidden");
+      workflowCotent.classList.remove("hidden");
+      toggleWorkflow.classList.add("bg-red-400");
+      toggleConfig.classList.remove("bg-red-400");
+      toggleWorkflow.classList.add("dark:bg-blue-400");
+      toggleConfig.classList.remove("dark:bg-blue-400");
+    });
+    configContent.classList.remove("hidden");
+    toggleWorkflow.classList.remove("bg-red-400");
+    toggleWorkflow.classList.remove("dark:bg-blue-400");
+  });
+});
